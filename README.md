@@ -1,24 +1,39 @@
-# README
+#俺のレシピが一番ウマい！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+- 料理レシピコミュニティサイト
+### サイトテーマ
+- 利用者が一番美味しいと感じたレシピを閲覧、投稿できるサイトです。
 
-Things you may want to cover:
+### テーマを選んだ理由
+- 料理が趣味の為、様々なジャンルの料理を作ってみたい
+- 今後自炊する上で助けになると思ったから
+- 料理の腕を磨きたい
+以上の点からこのテーマを選びました。
 
-* Ruby version
+### ターゲットユーザ
+- 料理が好きな人
+- 美味しいものが食べたい人
+- 自分の料理の腕に自信がある人
+- 料理に自信がない人
+- 料理を作ってみたい人
 
-* System dependencies
+### 主な利用シーン
+- 作る料理が決まっていない時
+- 新しいジャンルに挑戦したい時
+- どのようなレシピがあるか確認したい時
+- 自信のある料理を人に見てもらいたい時
+- お腹が空いたとき
 
-* Configuration
+## 設計書
+製作中
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 使用検討中です。
