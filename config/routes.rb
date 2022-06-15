@@ -25,18 +25,16 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root 'homes#top'
-    get 'customers/mypage' => 'customers#show', as: 'mypage'
-    # customers/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている
-    get 'customers/information/edit' => 'customers#edit', as: 'edit_information'
-    patch 'customers/information' => 'customers#update', as: 'update_information'
-    get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
-    put 'customers/information' => 'customers#update'
-    patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
-    resources :recipes, only: [:new, :index, :show]
-    
-    get 'followers' => 'relationships/followers', as: 'followers'
-    get 'followings' => 'relationships/followings', as: 'followings'
-
+    resources :customers, only: [:show, :edit, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+        get 'followers' => 'relationships/followers', as: 'followers'
+        get 'followings' => 'relationships/followings', as: 'followings'
+    end
+    resources :recipes, only: [:new, :index, :show] do
+      resources :ingredients, only: [:create, :edit, :destroy]
+      resources :cooking_process, only: [:create, :edit, :destroy]
+      resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
   end
 
 end
