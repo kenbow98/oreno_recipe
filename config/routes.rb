@@ -30,11 +30,12 @@ Rails.application.routes.draw do
         get 'followers' => 'relationships/followers', as: 'followers'
         get 'followings' => 'relationships/followings', as: 'followings'
     end
-    resources :recipes, only: [:new, :index, :show] do
+    resources :recipes, only: [:new, :index, :show, :create] do
       resources :ingredients, only: [:create, :edit, :destroy]
       resources :cooking_process, only: [:create, :edit, :destroy]
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+    end
   end
 
 end
