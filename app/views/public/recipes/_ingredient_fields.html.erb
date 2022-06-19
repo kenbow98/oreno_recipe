@@ -1,6 +1,5 @@
 <div class = "nested-fields">
-  <%= f.collection_select(:ingredient_name, {}, :id, :name, {}) %>
-  <%= f.number_field :quantity %>
-  <div>個</div>
+  <%= f.text_field :ingredient_name, placeholder:'材料名' %>
+  <%= f.text_field :quantity, placeholder:'個数' %>
   <%= link_to_remove_association "削除", f %>
 </div>

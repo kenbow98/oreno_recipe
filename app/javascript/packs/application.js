@@ -15,6 +15,7 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 // require('jquery')
+//window.$ = window.jQuery = require('jquery');
 import "cocoon";
 
 Rails.start()

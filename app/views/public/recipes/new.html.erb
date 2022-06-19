@@ -5,8 +5,19 @@
     <h4>料理名</h4>
       <%= f.text_field :title %>
     <h4>材料</h4>
-      <%= f.fields_for :recipe_ingredients do |t| %>
-        <%= render "recipes/ingredient_fields", f: t %>
-      <% end %>
-    <%= f.submit '投稿' %>
+      <div>
+        <%= f.fields_for :ingredients do |t| %>
+          <%= render "public/recipes/ingredient_fields", f: t %>
+        <% end %>
+        <%= link_to_add_association "追加", f, :ingredients %>
+      </div>
+      <div>
+        <%= f.fields_for :cooking_process do |t| %>
+          <%= render "public/recipes/cooking_process_fields", f: t %>
+        <% end %>
+        <%= link_to_add_association "追加", f, :cooking_process %>
+
+      </div>
+      <%= f.submit '投稿' %>
+
   <% end %>
