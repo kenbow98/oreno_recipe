@@ -1,2 +1,8 @@
-<h1>Public::Recipes#index</h1>
-<p>Find me in app/views/public/recipes/index.html.erb</p>
+<% @recipe.each do |recipe| %>
+<div>
+  <%= image_tag recipe.get_image %>
+  <p>投稿レシピ画像: <%= image_tag recipe.image %></p>
+  <p>レシピ名: <%= recipe.title %></p>
+  <p>ユーザー名:<%= recipe.customer.nickname %></p>
+</div>
+<% end %>

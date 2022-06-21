@@ -16,8 +16,7 @@
           <%= render "public/recipes/cooking_process_fields", f: t %>
         <% end %>
         <%= link_to_add_association "追加", f, :cooking_process %>
-
       </div>
-      <%= f.submit '投稿' %>
+      <%= f.submit '投稿', class:'btn-block btn-success btn-lg' %>
 
   <% end %>

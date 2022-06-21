@@ -8,19 +8,22 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
-    
+
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to recipes_path, flash: { notice: "「#{@recipe.title}」のレシピを投稿しました。"}
     else
       render action: :new
     end
-    
+
   end
 
   def index
+    @recipe = Recipe.all
   end
 
   def show
+    @recipe = Recipe.find(params[:id])
+    @recipe_comment = RecipeComment.new
   end
 
   private
@@ -28,5 +31,5 @@ class Public::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:image, :title, :process, ingredient_attributes: [:id, :ingredient_name, :quantity, :_destroy])
   end
-  
+
 end

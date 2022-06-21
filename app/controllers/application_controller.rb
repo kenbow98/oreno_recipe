@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   #devise利用の機能が使われる前にconfigure_permitted_parametersメソッドを実行
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    post_images_path
+  end
+
+  def after_sign_out_path_for(resource)
+    about_path
+  end
+
   #devise_parameter_sanitizer.permitメソッドを使うことでユーザー登録の際に、ユーザー名のデータ操作を許可
   protected
   #privateは記述したコントローラー内でしか参照できない
