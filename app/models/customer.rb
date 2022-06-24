@@ -19,6 +19,13 @@ class Customer < ApplicationRecord
   
   has_one_attached :profile_image
   
+  def self.guest
+    find_or_create_by!(name: 'guestuser' , email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      customer.name = "ゲストユーザー"
+    end
+  end
+  
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpeg'
   end
