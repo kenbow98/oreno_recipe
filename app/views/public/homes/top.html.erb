@@ -1,15 +1,33 @@
-<div class = "btn-wrapper col-10 mx-auto">
-  <div class = "row">
-    <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-1", style="background-color: #99cccc;">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3 mt-5 text-center">
+      <p>
+        <h3><strong>俺のレシピが一番ウマい！</strong></h3>
+        このサイトは、<br>
+        さまざまな自信のある料理レシピを投稿・閲覧して、<br>
+        日々の食生活の満足度を向上させる為のサイトです！<br>
+      </p>
+    </div>
   </div>
 
-  <div class = "row">
-    <%= link_to '会員登録', new_customer_registration_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+
+  <div class = "btn-wrapper col-10 mx-auto">
+    <div class = "row">
+      <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+    </div>
+
+    <div class = "row">
+      <%= link_to '会員登録', new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_up" %>
+    </div>
+
+    <div class = "row">
+      <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+    </div>
+
   </div>
-
-
-  <div class = "row">
-    <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-  </div>
-
 </div>

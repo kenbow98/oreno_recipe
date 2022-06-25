@@ -1,2 +1,16 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<table class='table'>
+  <tr><%= attachment_image_tag(customer, :profile_image, :fill,100, 100, fallback: "no_image.jpeg") %></tr>
+    <tr>
+    <th>ニックネーム</th>
+    <th><%= customer.nickname %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= customer.introduction %></th>
+  </tr>
+</table>
+<% if customer.name != "guestuser" %>
+<div class='row'>
+  <%= link_to '',edit_customer_path(customer),class: "btn btn-outline-secondary btn-block fas fa-customer-cog edit_customer_#{customer.id}" %>
+</div>
+<% end %>
