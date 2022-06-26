@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   has_one_attached :profile_image
-  
+
   validates :nickname, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
   validates :email, uniqueness: true
 
