@@ -30,7 +30,7 @@ Rails.application.routes.draw do
         get 'followers' => 'relationships/followers', as: 'followers'
         get 'followings' => 'relationships/followings', as: 'followings'
     end
-    resources :recipes, only: [:new, :index, :show, :create] do
+    resources :recipes, only: [:new, :index, :show, :create, :destroy] do
       resources :ingredients, only: [:create, :edit, :destroy]
       resources :cooking_process, only: [:create, :edit, :destroy]
       resources :comments, only: [:create, :destroy]

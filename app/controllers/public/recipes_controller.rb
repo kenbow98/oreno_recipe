@@ -23,7 +23,13 @@ class Public::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_comment = RecipeComment.new
+    # @recipe_comment = RecipeComment.new
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to 'recipes'
   end
 
   private

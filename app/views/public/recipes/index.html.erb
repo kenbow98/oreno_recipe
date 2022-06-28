@@ -1,8 +1,10 @@
 <% @recipe.each do |recipe| %>
 <div>
-  <%= image_tag recipe.get_image %>
+  <%= link_to recipe_path(recipe.id) do %>
+    <%= image_tag recipe.get_image %>
   <p>投稿レシピ画像: <%= image_tag recipe.image %></p>
   <p>レシピ名: <%= recipe.title %></p>
   <p>ユーザー名:<%= recipe.customer.nickname %></p>
+  <% end %>
 </div>
 <% end %>
