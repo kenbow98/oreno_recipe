@@ -18,13 +18,12 @@ Rails.application.routes.draw do
 
   #顧客用
   #URL customers/sign_in ...
-  devise_for :customers, controllers: {
+  scope module: :public do
+    root 'homes#top'
+    devise_for :customers, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
-  scope module: :public do
-    root 'homes#top'
     resources :customers, only: [:show, :edit, :destroy] do
       resource :relationships, only: [:create, :destroy]
         get 'followers' => 'relationships/followers', as: 'followers'

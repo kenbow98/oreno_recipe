@@ -4,12 +4,13 @@ class Public::CustomersController < ApplicationController
 
   def index
     # customers = Customer.where.not(name: "ゲストユーザー").deleted
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
+    @recipe = @customer.recipes
   end
 
   def show
     @customer = Customer.find(params[:id])
-
+    @recipes = @customer.recipes
   end
 
   def edit
@@ -35,7 +36,7 @@ class Public::CustomersController < ApplicationController
 
   def ensure_guest_user
     @customer = Customer.find(params[:id])
-    if @customer.name == "guestuser"
+    if @customer.nickname == "guestuser"
       redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end

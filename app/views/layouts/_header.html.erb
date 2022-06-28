@@ -10,9 +10,6 @@
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <!--<li class="nav-item">-->
-            <!--  <#%= link_to 'マイページ', public_customer_path(current_customer.id), class: 'nav-link text-dark' %>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
             <!--  <#%= link_to "ユーザー一覧", public_customers_path, class: 'nav-link text-dark' %>-->
             <!--</li>-->
             <li class="nav-item">
@@ -21,6 +18,10 @@
 
             <li class="nav-item">
               <%= link_to 'レシピ新規投稿', new_recipe_path, class: 'nav-link text-dark' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark' %>
             </li>
 
             <li class="nav-item">

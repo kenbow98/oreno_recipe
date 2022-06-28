@@ -1,7 +1,25 @@
 <table class='table'>
-  <th>ニックネーム</th>
-  <th><%= @customer.nickname %></th>
+  <div>
+  <h3><%= @customer.nickname %></h3>
+  <%#= image_tag @customer.get_profile_image(100,100) %>
+  <% if @customer == current_customer %>
+  <p><%= link_to "プロフィール編集", edit_customer_path(@customer) %></p>
+  <% end %>
+  </div>
 </table>
+
+<% @recipes.each do |recipe| %>
+<div>
+  <%= link_to recipe_path(recipe.id) do %>
+    <%= image_tag recipe.get_image %>
+  <% end %>
+  <!--<p>投稿ユーザー画像：<%#= image_tag recipe.customer.get_profile_image(100,100) %></p>-->
+  <p>投稿レシピ画像: <%= image_tag recipe.image %></p>
+  <p>レシピ名: <%= recipe.title %></p>
+  <p>ユーザー名:<%= recipe.customer.nickname %></p>
+</div>
+<% end %>
+
 <% if @customer.nickname != "guestuser" %>
 <div class='row'>
   <%= link_to 'Edit',edit_customer_path(@customer),class: "btn btn-outline-secondary btn-block fas fa-customer-cog edit_customer_#{customer.id}" %>
