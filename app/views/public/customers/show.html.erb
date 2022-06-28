@@ -1,12 +1,12 @@
 <table class='table'>
-  <tr><%= attachment_image_tag(@customer, :profile_image, :fill,100, 100, fallback: "no_image.jpeg") %></tr>
+  <tr><%#= attachment_image_tag(@customer, :profile_image, :fill,100, 100, fallback: "no_image.jpeg") %></tr>
     <tr>
     <th>ニックネーム</th>
-    <th><%= customer.nickname %></th>
+    <th><%= @customer.nickname %></th>
   </tr>
 </table>
-<% if customer.name != "guestuser" %>
+<% if @customer.nickname != "guestuser" %>
 <div class='row'>
-  <%= link_to '',edit_customer_path(customer),class: "btn btn-outline-secondary btn-block fas fa-customer-cog edit_customer_#{customer.id}" %>
+  <%= link_to 'Edit',edit_customer_path(@customer),class: "btn btn-outline-secondary btn-block fas fa-customer-cog edit_customer_#{customer.id}" %>
 </div>
 <% end %>

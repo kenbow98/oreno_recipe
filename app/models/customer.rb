@@ -23,9 +23,10 @@ class Customer < ApplicationRecord
   validates :email, uniqueness: true
 
   def self.guest
-    find_or_create_by!(nickname: 'guestuser' , email: 'guest@example.com') do |customer|
+    find_or_create_by(nickname: 'guestuser' , email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
-      customer.nickname = "ゲストユーザー"
+      # binding.pry
+      customer.nickname = "guestuser"
     end
   end
 
