@@ -8,7 +8,7 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
-
+    # byebug
     if @recipe.save
       redirect_to recipes_path, flash: { notice: "「#{@recipe.title}」のレシピを投稿しました。"}
     else
@@ -35,7 +35,7 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:image, :title, :process, ingredient_attributes: [:id, :ingredient_name, :quantity, :_destroy])
+    params.require(:recipe).permit(:image, :title, cooking_process_attributes: [:id, :recipe_id, :process, :_destroy],ingredients_attributes: [:id, :recipe_id, :ingredient_name, :quantity, :_destroy])
   end
 
 end

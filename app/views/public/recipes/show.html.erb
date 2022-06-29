@@ -2,6 +2,15 @@
   <p><%= image_tag @recipe.image %></p>
   <p>レシピ名: <%= @recipe.title %></p>
   <p>ユーザー名:<%= @recipe.customer.nickname %></p>
+  <p>材料：<% @recipe.ingredients.each do |ingredient| %>
+           <%= ingredient.ingredient_name %>
+           <%= ingredient.quantity %>
+           <% end %>
+  </p>
+  <p>作り方：<% @recipe.cooking_process.each do |process| %>
+             <%= process.process %>
+             <% end %>
+  </p>
   <p>投稿日:<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
   <% if @recipe.customer == current_customer %>
     <%= link_to "削除", recipe_path(@recipe), method: :delete %>
