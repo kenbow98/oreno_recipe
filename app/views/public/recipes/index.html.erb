@@ -2,6 +2,11 @@
 <div>
   <%= link_to recipe_path(recipe.id) do %>
     <%= image_tag recipe.get_image %>
+     <div class="tag-box">
+      <% recipe.tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+    </div>
   <p>レシピ名: <%= recipe.title %></p>
   <p>ユーザー名:<%= recipe.customer.nickname %></p>
   <% end %>

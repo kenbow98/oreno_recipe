@@ -10,6 +10,10 @@ class Public::RecipesController < ApplicationController
     @recipe.customer_id = current_customer.id
     # byebug
     if @recipe.save
+      tags = Vision.get_image_data(@recipe.image)
+      tags.each do |tag|
+        @recipe.tags.create(name: tag)
+      end
       redirect_to recipes_path, flash: { notice: "「#{@recipe.title}」のレシピを投稿しました。"}
     else
       render action: :new
